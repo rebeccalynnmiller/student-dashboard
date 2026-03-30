@@ -120,7 +120,7 @@ exports.handler = async (event) => {
 
     const { email, fullName } = body;
 
-    if (!email || typeof email !== 'string' || !email.includes('@')) {
+    if (!email || typeof email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return { statusCode: 400, body: JSON.stringify({ error: 'A valid email address is required' }) };
     }
 

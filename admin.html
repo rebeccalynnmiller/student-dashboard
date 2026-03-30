@@ -379,7 +379,7 @@
                 'Content-Type':  'application/json',
                 'Authorization': `Bearer ${adminSession.access_token}`,
               },
-              body: JSON.stringify({ email, fullName: fullName || undefined }),
+              body: JSON.stringify({ email, fullName }),
             });
             const json = await res.json();
             if (!res.ok) throw new Error(json.error || 'Invite failed');
