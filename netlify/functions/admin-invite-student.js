@@ -75,7 +75,7 @@ async function upsertStudentInvite(email, fullName, invitedBy) {
   if (!res.ok) {
     const text = await res.text();
     // Log but don't throw – invite email was already sent; this is non-critical
-    console.warn(`student_invites upsert warning (${res.status}): ${text}`);
+    console.warn(`student_invites upsert warning for ${email} (${res.status}): ${text}`);
   }
 }
 
