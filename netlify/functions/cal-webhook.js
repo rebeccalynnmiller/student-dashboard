@@ -248,8 +248,8 @@ async function handleBookingCancelled(payload) {
       buildCalOverlayRescheduleUrl(uid, attendeeEmail, eventSlug, startTime);
 
     // Backfill user_id if it is currently NULL but we can resolve it from email
-    let resolvedUserId = existing.user_id || null;
-    if (!resolvedUserId && attendeeEmail) {
+    let resolvedUserId = existing.user_id ?? null;
+    if (resolvedUserId === null && attendeeEmail) {
       resolvedUserId = await findUserByEmail(attendeeEmail);
     }
 
